@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "84f4e55c-c5d8-4e20-b41d-809c913ea6df",
+		"name": "globalSolution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22009911"
+	},
+	"item": [
+		{
+			"name": "buscarCEP",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cep\": \"06407020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/consultaCEP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"consultaCEP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Breno Julio Pereira\",\r\n    \"idade\": \"20\",\r\n    \"cpf\": \"12345678914\",\r\n    \"sexo\": \"M\",\r\n    \"email\": \"brenojulio87@gmail.com\",\r\n    \"senha\": \"br07022003\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cadastar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cadastar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscarCadastros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/buscarCadastros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"buscarCadastros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FazerLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jujsuwjsw@hotmail.com\",\r\n    \"senha\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/fazerLogin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fazerLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscarLogin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/buscarLogins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"buscarLogins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "atualizarSenha",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"brenojulio87@gmail.com\",\r\n    \"senha\": \"1234569\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/atualizarSenha",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"atualizarSenha"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mineração Google Maps Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.linkedin.com/search/results/people/?keywords=%23Spring%20boot&origin=SWITCH_SEARCH_VERTICAL&sid=0i-\",\r\n    \"typeSearch\": \"LINKEDIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/site/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"site",
+						"url"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mineração Linkedin Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"https://www.linkedin.com/search/results/people/?keywords=%23Spring%20boot&origin=SWITCH_SEARCH_VERTICAL&sid=0i-\",\r\n    \"typeSearch\": \"LINKEDIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/site/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"site",
+						"url"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
