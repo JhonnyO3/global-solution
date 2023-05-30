@@ -8,6 +8,11 @@ import com.fiap.global.solution.Repository.RoleRepository;
 import com.fiap.global.solution.Repository.UsuarioRepository;
 import com.fiap.global.solution.Service.UsuarioService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +28,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
+@Tag(name = "Usuario autenticação", description = "Api de autenticação de usuarios")
 public class UsuarioAuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -47,6 +53,9 @@ public class UsuarioAuthController {
             throw new CPFException();
         }
     }
+    @Operation(summary = "Autentica um Login do usuario", description = "Realiza o Login dos usuarios")
+    @ApiResponse(responseCode = "200", description = "Usuario Autenticado com sucesso!", content = @Content(schema = @Schema(implementation = UsuarioModel.class)))
+    @ApiResponse(responseCode = "404", description = "Login e/ou senha invalidos!")
     @PostMapping("/signin")
     public ResponseEntity<String> authenticateUser(@RequestBody LoginDto loginDto) {
         try {
@@ -64,7 +73,9 @@ public class UsuarioAuthController {
 
     }
 
-
+    @Operation(summary = "Realiza um cadastro de um novo usuario", description = "Realiza um cadastro de um novo usuario")
+    @ApiResponse(responseCode = "201", description = "Usuario criado com sucesso!", content = @Content(schema = @Schema(implementation = UsuarioModel.class)))
+    @ApiResponse(responseCode = "400", description = "Erro ao salvar cadastro")
     @PostMapping(path = "/signup")
     public ResponseEntity<Object> saveCadastro(@RequestBody UsuarioModel usuarioModel) throws CPFException {
         try {

@@ -80,6 +80,7 @@ public class SecurityConfig  {
                         authorize.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
                                 .requestMatchers("/api/auth/**").permitAll()
                                 .requestMatchers("/**").permitAll()
+                                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger.html").permitAll()
                                 .anyRequest().authenticated()
 
                 );
