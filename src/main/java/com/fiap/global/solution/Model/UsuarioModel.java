@@ -2,13 +2,11 @@ package com.fiap.global.solution.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 
 @Entity(name = "GS_USUARIO")
@@ -34,7 +32,7 @@ public class UsuarioModel implements Serializable {
     @Email
     private String email;
 
-    @Column(nullable = false )
+    @Column(nullable = false, length = 255)
     private String senha;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -44,6 +42,10 @@ public class UsuarioModel implements Serializable {
     private Set<Role> roles;
 
 
+
+    @NotNull
+    @OneToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<EnderecoModel> endereco;
 
     @Override
     public String toString() {

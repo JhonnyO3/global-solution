@@ -1,4 +1,4 @@
-package com.fiap.global.solution.Model;
+package com.fiap.global.solution.FeignModels;
 
 
 import lombok.AllArgsConstructor;

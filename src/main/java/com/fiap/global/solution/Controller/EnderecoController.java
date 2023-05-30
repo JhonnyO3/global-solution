@@ -1,7 +1,7 @@
 package com.fiap.global.solution.Controller;
 
 
-import com.fiap.global.solution.Model.EnderecoRequestModel;
+import com.fiap.global.solution.FeignModels.EnderecoRequestModel;
 import com.fiap.global.solution.Service.EnderecoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

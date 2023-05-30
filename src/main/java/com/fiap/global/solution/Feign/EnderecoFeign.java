@@ -1,7 +1,7 @@
 package com.fiap.global.solution.Feign;
 
 
-import com.fiap.global.solution.Model.EnderecoResponseModel;
+import com.fiap.global.solution.FeignModels.EnderecoResponseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
