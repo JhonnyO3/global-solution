@@ -36,6 +36,19 @@ public class SecurityConfig  {
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(usuarioService).passwordEncoder(passwordEncoder());
+
+
+    }
+
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .requestMatchers("/api/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .httpBasic();
     }
 
 
@@ -77,11 +90,19 @@ public class SecurityConfig  {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
                         //authorize.anyRequest().authenticated()
-                        authorize.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
-                                .requestMatchers("/api/auth/**").permitAll()
-                                .requestMatchers("/**").permitAll()
-                                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger.html").permitAll()
-                                .anyRequest().authenticated()
+                        {
+                            try {
+                                authorize.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+                                        .requestMatchers("/api/auth/**").permitAll()
+                                        .requestMatchers("/**").permitAll()
+                                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger.html").permitAll()
+                                        .anyRequest().authenticated()
+                                        .and().formLogin().and().httpBasic();
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+
 
                 );
 
