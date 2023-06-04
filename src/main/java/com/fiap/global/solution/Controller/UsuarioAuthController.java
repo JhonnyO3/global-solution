@@ -28,7 +28,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
-@Tag(name = "Usuario autenticação", description = "Api de autenticação de usuarios")
+@Tag(name = "Usuario autenticação", description = "API de autenticação de usuarios")
 public class UsuarioAuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
