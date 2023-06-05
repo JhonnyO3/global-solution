@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuario")
-@Tag(name = "Usuario serviços", description = "Api de gerenciamento de usuarios")
+@Tag(name = "Usuario serviços", description = "API de gerenciamento de usuarios")
 public class UsuarioController {
 
     @Autowired
@@ -56,7 +56,7 @@ public class UsuarioController {
         }
     }
 
-    @Operation(summary = "Buscar Usuarios", description = "Buscar lista de usuarios")
+    @Operation(summary = "Buscar Usuarios", description = "Buscar listas de usuarios")
     @ApiResponse(responseCode = "200", description = "Usuario deletado com sucesso!", content = @Content(schema = @Schema(implementation = UsuarioModel.class)))
     @ApiResponse(responseCode = "404", description = "Usuario não encontrado!")
     @GetMapping(path = "/buscarUsuarios")
