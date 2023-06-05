@@ -15,7 +15,7 @@ public class EnderecoService {
     @Autowired
     private final EnderecoFeign enderecoFeign;
 
-    public EnderecoResponseModel executa(EnderecoRequestModel request) {
-        return enderecoFeign.buscaEnderecoCep(request.getCep());
+    public EnderecoResponseModel executa(String request) {
+        return enderecoFeign.buscaEnderecoCep(request);
     }
 }

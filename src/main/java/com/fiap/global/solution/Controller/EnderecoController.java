@@ -5,11 +5,9 @@ import com.fiap.global.solution.FeignModels.EnderecoRequestModel;
 import com.fiap.global.solution.Service.EnderecoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -19,8 +17,15 @@ public class EnderecoController {
     @Autowired
     private final EnderecoService enderecoService;
 
-    @GetMapping("/consultaCEP")
-    public ResponseEntity consultaCep(@RequestBody EnderecoRequestModel enderecoRequest) {
-        return ResponseEntity.ok(enderecoService.executa(enderecoRequest));
+    @GetMapping("/consultaCEP/{enderecoRequest}")
+    public ResponseEntity consultaCep(@PathVariable String enderecoRequest) {
+        try {
+
+            return ResponseEntity.ok(enderecoService.executa(enderecoRequest));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+
     }
 }

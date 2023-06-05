@@ -12,6 +12,10 @@ import java.util.*;
 
 @Entity(name = "GS_USUARIO")
 @Data
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "UK_EMAIL", columnNames = "email"),
+        @UniqueConstraint(name = "UK_CPF", columnNames = "cpf")
+})
 public class UsuarioModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -26,7 +30,7 @@ public class UsuarioModel implements Serializable {
     @Column(nullable = false, length = 11)
     private String telefone;
 
-    @Column(nullable = false,unique = true, length = 11)
+    @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
     @Column(nullable = false,unique = true, length = 100)

@@ -55,7 +55,7 @@ public class UsuarioAuthController {
     }
     @Operation(summary = "Autentica um Login do usuario", description = "Realiza o Login dos usuarios")
     @ApiResponse(responseCode = "200", description = "Usuario Autenticado com sucesso!", content = @Content(schema = @Schema(implementation = UsuarioModel.class)))
-    @ApiResponse(responseCode = "404", description = "Login e/ou senha invalidos!")
+    @ApiResponse(responseCode = "404", description = "Senha invalida!")
     @PostMapping("/signin")
     public ResponseEntity<String> authenticateUser(@RequestBody LoginDto loginDto) {
         try {
