@@ -49,7 +49,7 @@ public class UsuarioService implements UserDetailsService  {
     public String deleteUserByEmail(String email) {
         try {
 
-            if (usuarioRepository.findByEmail(email).isPresent()) {
+            if (usuarioRepository.findByEmail(email) != null) {
 
                 usuarioRepository.deleteByEmail(email);
                 return "email deletado com sucesso!";
@@ -64,6 +64,7 @@ public class UsuarioService implements UserDetailsService  {
     }
 
     public void updateUserByEmail(String email, UsuarioUpdateDto usuarioUpdate) {
+        usuarioUpdate.setSenha(passwordEncoder.encode(usuarioUpdate.getSenha()));
         usuarioRepository.updateUsuarioModelByEmail(email, usuarioUpdate);
     }
 

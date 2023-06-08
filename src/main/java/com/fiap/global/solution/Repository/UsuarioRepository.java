@@ -27,6 +27,7 @@ public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
     @Query("DELETE FROM GS_USUARIO u WHERE u.email = :email")
     void deleteByEmail(String email);
 
+
     @Modifying
     @Transactional
     @Query("UPDATE GS_USUARIO u SET u.nome = :#{#usuario.nome}, u.telefone = :#{#usuario.telefone}, u.cpf = :#{#usuario.cpf}, u.senha = :#{#usuario.senha} WHERE u.email = :email")
