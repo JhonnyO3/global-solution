@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableFeignClients
 @ImportAutoConfiguration({FeignAutoConfiguration.class})
 public class GlobalSolutionApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(GlobalSolutionApplication.class, args);
 	}
